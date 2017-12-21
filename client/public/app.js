@@ -19,30 +19,33 @@ $(document).ready(function() {
 
 
 	$('#header').on('click', function() {
-		$('#append-to-this-div').remove(); // not sure about this?
+		// $('#append-to-this-div').remove(); // not sure about this?
 
-		var rowDiv = $('<div class="row">');
-
-		var colOneDiv = $('<div class="col-md-1">');
-		var colTwoDiv = $('<div class="col-md-2">');
-		var colThreeDiv = $('<div class="col-md-3">');
+		var animalId = $(this).data('id');
 
 		$.ajax({
 			data: 'GET',
 			url: '/api/animals',
 		}).then((animals) => {
-			console.log(animals);
-			var reptiliaDiv = $('<div id="reptilia-div">');
-			// reptiliaDiv.append(colOneDiv).append(colTwoDiv).append(colThreeDiv);
-
-// NOT SURE WHERE TO GO FROM HERE....IM GETTING THE DATA BACK FROM THE REPTILIA CLASS which is good.
-// IN LINE 42....IN GETTING AN ERROR (app.js:41 Uncaught TypeError: animals.filter is not a function)
-// BUT I could it be stemming from ( at Object.$.ajax.then (app.js:41)) which is in line 33
-// But that is where the .then is.
-
-			var reptilia = animals.filter((animal) => {
-				return animal.class.toUpperCase() === "reptilia";
+			// console.log(animals); // shows reptilia in console
+			// for (var i = 0; i < animals.rows.length; i++) {
+			// 	console.log(animals);
+			// }
+			// var rowDiv = $('<div class="row">');
+			// var colOneDiv = $('<div class="col-md-1">');
+			// var colTwoDiv = $('<div class="col-md-2">');
+			// var colThreeDiv = $('<div class="col-md-3">');
+			// var reptiliaDiv = $('<div id="reptilia-div">');
+			// var reptiliaHeader = $('<h3>');
+			var reptiliaArr = [];
+			var reptilia = reptiliaArr.filter((animals) => {
+				for (var i = 0; i < reptilia.rows.length; i ++) {
+					reptiliaArr.push(animals);
+				}
+				return animals.class.toUpperCase() === "reptilia";
 			});
+			console.log(animals);
+
 			// var reptiliaHeader = $('<h3>');
 			// reptiliaHeader.addClass('text-center');
 			// reptiliaHeader.text("Class: Reptilia");
@@ -50,6 +53,11 @@ $(document).ready(function() {
 			// reptiliaDiv.append(reptiliaHeader);
 			// var reptiliaImage, randomNum = 12 + 6;
 			// for (var i = 0; i < reptilia.length; i++) {
+
+
+			// LOOK at jquery-ajax/1.1-First_Ajax/exercise_2/solved/ajax_dom.js
+
+
 			// 	$.ajax({
 			// 		method: 'GET',
 			// 		url: 'http://api.giphy.com/v1/gifs/search?q=' + reptilia[i] + '&api_key=&limit=10',

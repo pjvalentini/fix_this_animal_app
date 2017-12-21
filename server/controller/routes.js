@@ -32,7 +32,7 @@ router.get('/', function(req, res) {
 
 router.get('/api/animals', (req, res) => {
 	pgClient.query("SELECT * FROM animals WHERE class='Reptilia'", (err, resReptilia) => {
-		console.log(resReptilia);
+		console.log(resReptilia); // shows reptila in terminal
 		if (err) {
 			res.json(err);
 		} else {
@@ -41,16 +41,26 @@ router.get('/api/animals', (req, res) => {
 	});
 });
 
-// router.get('api/amphibia', (req,res) => {
-// 	pgClient.query("SELECT * FROM amphibia WHERE class='Amphibia'", (err, res) => {
-// 		res.json(res.rows);
-// 	})
-// })
-//
-// app.get('/api/arachnida', (req,res) => {
-// 	pgClient.query("SELECT * FROM arachnida WHERE class='Arachnida', (err, res) "=> {
-// 		res.json(res.rows);
-// 	})
-// })
+// router.get('api/amphibia', (req, res) => {
+// 	pgClient.query("SELECT * FROM amphibia WHERE class='Amphibia'", (err, resAmphibia) => {
+// 		console.log(resAmphibia); // shows reptila in terminal
+// 		if (err) {
+// 			res.json(err);
+// 		} else {
+// 			res.json(resAmphibia);
+// 		}
+// 	});
+// });
+// //
+// router.get('/api/arachnida', (req, res) => {
+// 	pgClient.query("SELECT * FROM arachnida WHERE class='Arachnida'", (err, resArachnida) => {
+// 		console.log(resArachnida); // shows reptila in terminal
+// 		if (err) {
+// 			res.json(err);
+// 		} else {
+// 			res.json(resArachnida);
+// 		}
+// 	});
+// });
 
 module.exports = router;
