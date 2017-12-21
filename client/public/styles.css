@@ -1,0 +1,10 @@
+#header {
+	color: blue;
+	font-size: 50px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
