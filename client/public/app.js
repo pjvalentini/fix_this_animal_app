@@ -17,8 +17,10 @@ $(document).ready(function() {
 		}
 	});
 
+
 	$('#header').on('click', function() {
-		$('#append-to-this-div').remove();
+		$('#append-to-this-div').remove(); // not sure about this?
+
 		var rowDiv = $('<div class="row">');
 
 		var colOneDiv = $('<div class="col-md-1">');
@@ -30,10 +32,17 @@ $(document).ready(function() {
 			url: '/api/animals',
 		}).then((animals) => {
 			console.log(animals);
-			// var reptilia = animals.filter((animal) => {
-			// 	return animal.class.toUpperCase() === "reptilia";
-			// });
-			// var reptiliaDiv = $('<div id="reptilia-div">');
+			var reptiliaDiv = $('<div id="reptilia-div">');
+			// reptiliaDiv.append(colOneDiv).append(colTwoDiv).append(colThreeDiv);
+
+// NOT SURE WHERE TO GO FROM HERE....IM GETTING THE DATA BACK FROM THE REPTILIA CLASS which is good.
+// IN LINE 42....IN GETTING AN ERROR (app.js:41 Uncaught TypeError: animals.filter is not a function)
+// BUT I could it be stemming from ( at Object.$.ajax.then (app.js:41)) which is in line 33
+// But that is where the .then is.
+
+			var reptilia = animals.filter((animal) => {
+				return animal.class.toUpperCase() === "reptilia";
+			});
 			// var reptiliaHeader = $('<h3>');
 			// reptiliaHeader.addClass('text-center');
 			// reptiliaHeader.text("Class: Reptilia");
@@ -47,7 +56,7 @@ $(document).ready(function() {
 			// 	}).then((giphy) => {
 			// 		randomNum = Math.floor(Math.random() - 10);
 			// 		reptiliaImage = $('<image>', {
-			// 			source: giphy.data(randomNum),
+			// 			src: giphy.data(randomNum),
 			// 		});
 			// 		reptiliaDiv.append(reptiliaImage);
 			// 	});

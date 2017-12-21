@@ -47,7 +47,7 @@ router.get('/api/animals', (req, res) => {
 // 	})
 // })
 //
-// app.get('/apireptilia', (req,res) => {
+// app.get('/api/arachnida', (req,res) => {
 // 	pgClient.query("SELECT * FROM arachnida WHERE class='Arachnida', (err, res) "=> {
 // 		res.json(res.rows);
 // 	})
