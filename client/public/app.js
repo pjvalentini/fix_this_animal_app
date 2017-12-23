@@ -27,16 +27,6 @@ $(document).ready(function() {
 			data: 'GET',
 			url: '/api/animals',
 		}).then((animals) => {
-			// console.log(animals); // shows reptilia in console
-			// for (var i = 0; i < animals.rows.length; i++) {
-			// 	console.log(animals);
-			// }
-			// var rowDiv = $('<div class="row">');
-			// var colOneDiv = $('<div class="col-md-1">');
-			// var colTwoDiv = $('<div class="col-md-2">');
-			// var colThreeDiv = $('<div class="col-md-3">');
-			// var reptiliaDiv = $('<div id="reptilia-div">');
-			// var reptiliaHeader = $('<h3>');
 			var reptiliaArr = [];
 			var reptilia = reptiliaArr.filter((animals) => {
 				for (var i = 0; i < reptilia.rows.length; i ++) {
@@ -46,18 +36,32 @@ $(document).ready(function() {
 			});
 			console.log(animals);
 
-			// var reptiliaHeader = $('<h3>');
-			// reptiliaHeader.addClass('text-center');
-			// reptiliaHeader.text("Class: Reptilia");
-			// reptiliaHeader.css({ textOrientation: 'underline' });
-			// reptiliaDiv.append(reptiliaHeader);
-			// var reptiliaImage, randomNum = 12 + 6;
-			// for (var i = 0; i < reptilia.length; i++) {
+ 			var reptiliaDiv = $('<div id="reptilia-div">');
+			var rowDiv = $('<div class="row">');
+		 	var colOneDiv = $('<div class="col-md-1">');
+			var reptiliaHeader = $('<h3>');
+			reptiliaHeader.addClass('text-center');
+			reptiliaHeader.text("Class: Reptilia");
+			reptiliaHeader.css({ textOrientation: 'underline' });
+			reptiliaDiv.append(reptiliaHeader);
+			// console.log(reptiliaHeader);
+			$('#append-to-this-div').append(reptiliaDiv);
+			reptiliaDiv.append(rowDiv);
+			rowDiv.append(colOneDiv);
+
+			// var colOneDiv = $('<div class="col-md-1">');
+			// var colTwoDiv = $('<div class="col-md-2">');
+			// var colThreeDiv = $('<div class="col-md-3">');
+
+		// LOOK at jquery-ajax/1.1-First_Ajax/exercise_2/solved/ajax_dom.js
 
 
-			// LOOK at jquery-ajax/1.1-First_Ajax/exercise_2/solved/ajax_dom.js
-
-
+			// var reptiliaImage;
+			// var randomNum;
+      //
+			// // LOOK at jquery-ajax/1.1-First_Ajax/exercise_2/solved/ajax_dom.js
+      //
+      //
 			// 	$.ajax({
 			// 		method: 'GET',
 			// 		url: 'http://api.giphy.com/v1/gifs/search?q=' + reptilia[i] + '&api_key=&limit=10',
@@ -69,7 +73,7 @@ $(document).ready(function() {
 			// 		reptiliaDiv.append(reptiliaImage);
 			// 	});
 			// }
-			// colTwoDiv.append(reptiliaDiv);
+			// colOneDiv.append(reptiliaDiv);
 			// rowDiv.append(colOneDiv).append(colTwoDiv);
 			// $('#append-to-that-div').append(rowDiv);
 		});
