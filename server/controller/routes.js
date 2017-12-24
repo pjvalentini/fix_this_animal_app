@@ -32,7 +32,7 @@ router.get('/', function(req, res) {
 
 router.get('/api/animals', (req, res) => {
 	pgClient.query("SELECT * FROM animals WHERE class='Reptilia'", (err, resReptilia) => {
-		console.log(resReptilia); // shows reptila in terminal
+		// console.log(resReptilia); // shows reptila in terminal
 		if (err) {
 			res.json(err);
 		} else {
