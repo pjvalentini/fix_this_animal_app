@@ -21,8 +21,6 @@ $(document).ready(function() {
 	$('#header').on('click', function() {
 		// $('#append-to-this-div').remove(); // not sure about this?
 
-		var animalId = $(this).data('id');
-
 		$.ajax({
 			data: 'GET',
 			url: '/api/animals',
@@ -37,11 +35,11 @@ $(document).ready(function() {
 			// console.log(animals);
 
  			var reptiliaDiv = $('<div id="reptilia-div">');
+			var reptiliaHeader = $('<h3>');
 			var rowDiv = $('<div class="row">');
 		 	var colOneDiv = $('<div class="col-md-1">');
 			var colTwoDiv = $('<div class="col-md-2">');
 			var colThreeDiv = $('<div class="col-md-3">');
-			var reptiliaHeader = $('<h3>');
 			// console.log(reptiliaHeader);
 			reptiliaHeader.addClass('text-center');
 			reptiliaHeader.text("Class: Reptilia");
@@ -55,23 +53,21 @@ $(document).ready(function() {
 			var reptiliaImage;
 			var randomNum;
 
-			// // LOOK at jquery-ajax/1.1-First_Ajax/exercise_2/solved/ajax_dom.js
 
 				$.ajax({
 					method: 'GET',
 					url: 'http://api.giphy.com/v1/gifs/search?q=' + reptilia.name + '&api_key=dc6zaTOxFJmzC&limit=10',
 				}).then((giphy) => {
-					console.log(giphy); // shows me the res from the get request.
+					// console.log(giphy);
 					randomNum = Math.floor(Math.random() * 9) + 1;
-					console.log(randomNum); // consoles a random num....
+					console.log(randomNum);
 					reptiliaImage = $('<img>', {
 						src: giphy.data[randomNum].images.fixed_height.url,
 					});
 					colOneDiv.append(reptiliaImage);
-					// colTwoDiv.append(reptiliaImage);
 					rowDiv.append(colOneDiv).append(colTwoDiv).append(colThreeDiv);
 					$('#append-to-this-div').append(rowDiv);
-				});
+			 });
 		});
 	});
 });
