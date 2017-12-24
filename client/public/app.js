@@ -61,13 +61,14 @@ $(document).ready(function() {
 					method: 'GET',
 					url: 'http://api.giphy.com/v1/gifs/search?q=' + reptilia.name + '&api_key=dc6zaTOxFJmzC&limit=10',
 				}).then((giphy) => {
-					console.log(giphy);
+					console.log(giphy); // shows me the res from the get request.
 					randomNum = Math.floor(Math.random() * 9) + 1;
-					console.log(randomNum);
+					console.log(randomNum); // consoles a random num....
 					reptiliaImage = $('<img>', {
 						src: giphy.data[randomNum].images.fixed_height.url,
 					});
 					colOneDiv.append(reptiliaImage);
+					// colTwoDiv.append(reptiliaImage);
 					rowDiv.append(colOneDiv).append(colTwoDiv).append(colThreeDiv);
 					$('#append-to-this-div').append(rowDiv);
 				});
